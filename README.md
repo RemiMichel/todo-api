@@ -9,8 +9,9 @@ pip install flask
 pip install flask_sqlalchemy
 pip install pymysql
 pip install flask_restful
+pip install simplejson (use to store data in json file)
 ```
-### To run :
+### Run :
 ```
 python main.py
 ```
@@ -29,4 +30,19 @@ POST http://127.0.0.1:5000/todos
 GET http://127.0.0.1:5000/todo/4
 PUT http://127.0.0.1:5000/todo/4
 {"label": "updatedLabel", "status": 0}
+```
+
+### DAO
+
+to use mysql :
+_(resources.py)_
+```
+from src.dao.mysql import Mysql
+dao = Mysql()
+```
+to use json file :
+_(resources.py)_
+```
+from src.dao.json import Json
+dao = Json()
 ```
