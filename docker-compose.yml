@@ -6,7 +6,6 @@ services:
     volumes:
       - .:/app
     command: python main.py
-
     ports:
       - "5000:5000"
 
@@ -18,3 +17,8 @@ services:
     environment:
       MYSQL_DATABASE: todo
       MYSQL_ROOT_PASSWORD: password
+
+networks:
+  default:
+    external:
+      name: todo_network

@@ -1,10 +1,30 @@
 # todo-api
 An api for Todo management in Python
 
+### To set up :
+1) Edit `SQLALCHEMY_DATABASE_URI` in config.py
 
-### Docker-compose
+2) create docker network named todo_network  
+```
+docker network create todo_network
+```
+3) Then run 
+```
+docker-compose -f ./docker-compose.yml up -d --build
+```
 
-in case you don't want to use docker-compose, you have to change SQLALCHEMY_DATABASE_URI in the config.py file otherwise just docker-compose up the .yml file
+### Migration :
+run this command in todo-api container
+```
+# execute
+flask db upgrade
+# generate
+flask db migrate -m "migration_label."
+```
+
+## Without Docker-compose
+
+in case you don't want to use docker-compose
 
 ### To set up :
 ```
@@ -40,14 +60,13 @@ PUT http://127.0.0.1:5000/todo/4
 ### DAO
 
 to use mysql :
-_(resources.py)_
 ```
 from src.dao.mysql import Mysql
 dao = Mysql()
 ```
 to use json file :
-_(resources.py)_
 ```
 from src.dao.json import Json
 dao = Json()
 ```
+_(src/resources.py:4)_
