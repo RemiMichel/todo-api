@@ -1,0 +1,20 @@
+services:
+  todo-api:
+    container_name: todo-api
+    build: "./docker"
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: python main.py
+
+    ports:
+      - "5000:5000"
+
+  database:
+    container_name: database
+    image: "mysql:latest"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: todo
+      MYSQL_ROOT_PASSWORD: password

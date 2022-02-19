@@ -1,6 +1,11 @@
 # todo-api
 An api for Todo management in Python
 
+
+### Docker-compose
+
+in case you don't want to use docker-compose, you have to change SQLALCHEMY_DATABASE_URI in the config.py file otherwise just docker-compose up the .yml file
+
 ### To set up :
 ```
 virtualenv env -p python3
