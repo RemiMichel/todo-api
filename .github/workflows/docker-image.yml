@@ -3,7 +3,7 @@ name: Docker Image CI
 env:
   USERNAME: remi
   IMAGE_NAME: todo-api
-  TAG: $(date +%s)
+  TAG: latest
 
 on:
   push:
