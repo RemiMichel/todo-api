@@ -5,14 +5,22 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  env:
+    USERNAME: remi
+    IMAGE_NAME: todo-api
+    TAG: $(date +%s)
 
+  workflow_call:
+    secrets:
+      CR_PAT:
+        description: 'A token passed from the caller workflow'
+        required: false
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build docker/ --tag todo-api:$(date +%s)
+    - name: Build and publish the Docker image
+      run: |
+        docker login ghcr.io -u USERNAME -p ${{ secrets.CR_PAT }}
+        docker build docker/ --tag IMAGE_NAME:TAG
+        docker push ghcr.io/USERNAME/IMAGE_NAME:TAG
