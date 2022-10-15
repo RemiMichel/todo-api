@@ -20,8 +20,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Build and publish the Docker image
     - uses: actions/checkout@main
+    - name: Build and publish the Docker image
       run: |
         docker login ghcr.io -u ${{ env.USERNAME }} -p ${{ secrets.CR_PAT }}
         docker build docker/ --tag ${{ env.IMAGE_NAME }}:${{ env.TAG }}
