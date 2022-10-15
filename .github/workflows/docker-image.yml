@@ -22,6 +22,6 @@ jobs:
     steps:
     - name: Build and publish the Docker image
       run: |
-        docker login ghcr.io -u USERNAME -p ${{ secrets.CR_PAT }}
-        docker build docker/ --tag IMAGE_NAME:TAG
-        docker push ghcr.io/USERNAME/IMAGE_NAME:TAG
+        docker login ghcr.io -u ${{ env.USERNAME }} -p ${{ secrets.CR_PAT }}
+        docker build docker/ --tag ${{ env.IMAGE_NAME }}:${{ env.TAG }}
+        docker push ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
