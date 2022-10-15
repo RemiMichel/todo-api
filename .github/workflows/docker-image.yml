@@ -25,5 +25,5 @@ jobs:
       run: |
         docker login ghcr.io -u ${{ env.USERNAME }} -p ${{ secrets.CR_PAT }}
         docker build docker/ --tag ${{ env.IMAGE_NAME }}:${{ env.TAG }}
-        docker tag ${{ env.TAG }} ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
+        docker tag ${{ env.IMAGE_NAME }} ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
         docker push ghcr.io/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
