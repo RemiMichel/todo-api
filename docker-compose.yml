@@ -1,7 +1,7 @@
 services:
   todo-api:
     container_name: todo-api
-    build: "./docker"
+    build: .
     working_dir: /app
     volumes:
       - .:/app
