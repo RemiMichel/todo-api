@@ -3,7 +3,7 @@ name: Docker Image CI
 env:
   USERNAME: remi
   OWNER: remimichel
-  TAG: latest
+  TAG: v0.0.1
   IMAGE_NAME: todo-api
 
 on:
