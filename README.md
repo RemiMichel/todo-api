@@ -2,7 +2,7 @@
 An api for Todo management in Python
 
 ### To set up :
-1) Edit `SQLALCHEMY_DATABASE_URI` in config.py
+1) copy .env.dvl with and fill it up with good datas
 
 2) create docker network named todo_network  
 ```
@@ -16,6 +16,8 @@ docker-compose -f ./docker-compose.yml up -d --build
 ### Migration :
 run this command in todo-api container
 ```
+# export FLASK_APP variable
+export FLASK_APP=/app/main.py
 # execute
 flask db upgrade
 # generate
